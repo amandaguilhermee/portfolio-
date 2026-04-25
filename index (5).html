@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Guilherme – Gestão de Projetos de Mídia</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#1a1a18;--green:#2d6a4f;--green-light:#52b788;--cream:#f8f4ee;--text:#2c2c2a;--muted:#6b6b65}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:#fff;line-height:1.6}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.hero-left{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--dark)}
+.hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-light);margin-bottom:2rem}
+.hero-name{font-family:'DM Serif Display',serif;font-size:clamp(3rem,5vw,5.5rem);line-height:1;margin-bottom:.5rem}
+.hero-name em{color:var(--green-light);font-style:italic}
+.hero-title{font-size:13px;color:#777;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2.5rem}
+.hero-tagline{font-family:'DM Serif Display',serif;font-size:1.4rem;font-style:italic;color:#ccc;line-height:1.6;border-left:3px solid var(--green-light);padding-left:1.5rem;margin-bottom:3rem}
+.hero-cta{display:inline-block;background:var(--green);color:#fff;padding:1rem 2.5rem;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:.06em;transition:background .2s;width:fit-content}
+.hero-cta:hover{background:var(--green-light)}
+.hero-right{background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;padding:3rem}
+.avatar{width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3rem;color:#fff}
+.vagas-badge{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);padding:1.25rem 2rem;text-align:center}
+.vagas-badge strong{display:block;font-size:1.1rem;font-weight:500;margin-bottom:.25rem}
+.vagas-badge span{font-size:12px;color:#aaa;letter-spacing:.1em;text-transform:uppercase}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#111}
+.stat{background:var(--cream);padding:2rem;text-align:center}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2.5rem;color:var(--green);display:block}
+.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+
+section{padding:5rem 4rem}
+.section-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem}
+h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,3rem);margin-bottom:1.5rem}
+
+/* SOBRE */
+.sobre{background:var(--cream)}
+.sobre h2{color:var(--text)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.sobre p{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:1rem}
+.sobre p strong{color:var(--text);font-weight:500}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.badge{background:#fff;border:1px solid #ddd;padding:.4rem 1rem;font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* MARCAS */
+.marcas{background:var(--dark);text-align:center}
+.marcas h2{color:#fff}
+.marcas-sub{color:#777;max-width:560px;margin:0 auto 3rem;font-size:15px}
+.logos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);max-width:800px;margin:0 auto}
+.logo-item{background:var(--dark);padding:2rem;text-align:center}
+.logo-name{font-size:1rem;font-weight:500;letter-spacing:.04em;color:#fff;display:block}
+.logo-seg{font-size:11px;color:#555;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;display:block}
+
+/* PROBLEMAS */
+.problemas{background:var(--cream)}
+.problemas h2{color:var(--text)}
+.problemas-intro{color:var(--muted);font-size:15px;max-width:600px;margin-bottom:3rem;line-height:1.9}
+.problemas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.problema{background:#fff;padding:2rem;border-left:4px solid var(--green)}
+.problema-titulo{font-size:.85rem;font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.problema h3{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:.75rem;line-height:1.4}
+.problema p{font-size:14px;color:var(--muted);line-height:1.8}
+
+/* COMO TRABALHO */
+.como{background:var(--dark)}
+.como h2{color:#fff}
+.como-intro{color:#888;font-size:15px;max-width:600px;margin-bottom:3rem;line-height:1.9}
+.como-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07)}
+.como-item{background:var(--dark);padding:2rem}
+.como-num{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--green-light);opacity:.4;line-height:1;margin-bottom:1rem}
+.como-item h3{font-size:1rem;font-weight:500;color:#fff;margin-bottom:.75rem}
+.como-item p{font-size:14px;color:#777;line-height:1.8}
+
+/* SERVICOS */
+.servicos{background:var(--cream)}
+.servicos h2{color:var(--text)}
+.servicos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.servico{background:#fff;padding:2rem;border-top:3px solid var(--green)}
+.servico h3{font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.75rem}
+.servico p{font-size:14px;color:var(--muted);line-height:1.8}
+
+/* CTA */
+.cta-section{background:var(--green);padding:5rem 4rem;text-align:center}
+.cta-section h2{color:#fff;font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,3rem);margin-bottom:1rem}
+.cta-section p{color:rgba(255,255,255,.8);max-width:480px;margin:0 auto 2.5rem;font-size:15px}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--green);padding:1rem 2.5rem;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:.05em;transition:.2s}
+.btn-white:hover{background:var(--cream)}
+.btn-outline{border:2px solid rgba(255,255,255,.6);color:#fff;padding:1rem 2.5rem;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:.05em;transition:.2s}
+.btn-outline:hover{border-color:#fff}
+
+footer{background:var(--dark);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.07)}
+footer p{font-size:13px;color:#444}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:.04em}
+.footer-links a:hover{color:var(--green-light)}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{padding:3rem 2rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sobre-grid,.servicos-grid,.problemas-grid,.como-grid,.logos-grid{grid-template-columns:1fr}
+  section,.hero-left,.cta-section,footer{padding:3rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Gestão de Projetos · Mídia & Processos · Freelancer</p>
+    <h1 class="hero-name">Amanda<br><em>Guilherme</em></h1>
+    <p class="hero-title">Project Manager · Account Manager</p>
+    <blockquote class="hero-tagline">Você foca no que<br>só você pode fazer.<br>Eu cuido do resto.</blockquote>
+    <a href="https://wa.me/5561996248205?text=Oi%20Amanda%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar!" class="hero-cta">→ Agendar conversa gratuita</a>
+  </div>
+  <div class="hero-right">
+    <div class="avatar">AG</div>
+    <div class="vagas-badge">
+      <strong>2 vagas abertas agora</strong>
+      <span>100% remoto · abril 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Anos em agências</span></div>
+  <div class="stat"><span class="stat-num">2,5</span><span class="stat-label">Anos como PM</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Remoto</span></div>
+  <div class="stat"><span class="stat-num">6</span><span class="stat-label">Grandes marcas</span></div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <p class="section-tag">Sobre mim</p>
+  <div class="sobre-grid">
+    <div>
+      <h2>Organizar o que estava confuso sempre foi o meu jeito de funcionar.</h2>
+    </div>
+    <div>
+      <p>Foi meu chefe quem me fez enxergar isso como um talento de verdade. Ele olhou pra mim, enxergou uma veia de organização que eu nem sabia que tinha, e me convidou a mudar de área. Aceitei o desafio com muita gratidão e responsabilidade.</p>
+      <p>Com a confiança que ele depositou em mim, aprimorei os processos da área, trouxe mais estrutura e aprendi na prática que <strong>o que parece óbvio pra você pode ser exatamente o que falta no negócio de alguém.</strong></p>
+      <p>Desde então, trabalhei em agência gerenciando projetos de campanhas pontuais para marcas como Uber, Mastercard e Banco do Brasil. Aprendi que prazo furado e processo confuso custam caro, e que existe jeito melhor de operar.</p>
+      <div class="badges">
+        <span class="badge">Marketing Digital · IESB</span>
+        <span class="badge">Gestão de Projetos · Instituto Mestre GP</span>
+        <span class="badge">ClickUp Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section class="marcas">
+  <p class="section-tag">Experiência comprovada</p>
+  <h2>Projetos de campanhas para quem exige o melhor.</h2>
+  <p class="marcas-sub">Gerenciei projetos de campanhas pontuais para essas marcas, dentro de agência de representação. O mesmo nível de organização e atenção disponível para o seu negócio.</p>
+  <div class="logos-grid">
+    <div class="logo-item"><span class="logo-name">Uber</span><span class="logo-seg">Mobilidade</span></div>
+    <div class="logo-item"><span class="logo-name">Mastercard</span><span class="logo-seg">Financeiro</span></div>
+    <div class="logo-item"><span class="logo-name">Banco do Brasil</span><span class="logo-seg">Financeiro</span></div>
+    <div class="logo-item"><span class="logo-name">Skol</span><span class="logo-seg">Bebidas</span></div>
+  </div>
+</section>
+
+<!-- PROBLEMAS QUE RESOLVO -->
+<section class="problemas">
+  <p class="section-tag">Problemas que eu resolvo</p>
+  <h2>Se você se reconhece aqui, a gente precisa conversar.</h2>
+  <p class="problemas-intro">Esses são os problemas que eu vejo toda semana em agências e que sei resolver na prática — não só na teoria.</p>
+  <div class="problemas-grid">
+    <div class="problema">
+      <p class="problema-titulo">Falta de previsibilidade</p>
+      <h3>"A campanha está rodando, mas ninguém sabe exatamente o que está acontecendo."</h3>
+      <p>Eu crio diários de bordo e rotinas de acompanhamento para que toda a equipe — e o cliente — saiba o status de cada campanha em tempo real, sem precisar perguntar.</p>
+    </div>
+    <div class="problema">
+      <p class="problema-titulo">Briefings incompletos</p>
+      <h3>"O briefing chega curto, sem objetivo claro, e a equipe executa no escuro."</h3>
+      <p>Estruturo briefings completos com objetivo de campanha, público-alvo, métricas de sucesso e contexto do cliente — antes de qualquer execução começar.</p>
+    </div>
+    <div class="problema">
+      <p class="problema-titulo">Gestão de crise em campanhas</p>
+      <h3>"A campanha está com discrepância de dados e ninguém sabe o que fazer."</h3>
+      <p>Tenho knowhow de auditoria de campanhas e gestão de crise em mídia — identifico o problema, aciono os ajustes rápidos e comunico o cliente de forma clara, sem gerar pânico.</p>
+    </div>
+    <div class="problema">
+      <p class="problema-titulo">Cliente difícil de atender</p>
+      <h3>"Cada cliente quer ser atendido de um jeito diferente e a equipe não sabe como."</h3>
+      <p>Mapeio as preferências e dores de cada cliente e adapto a comunicação — tom, formato, frequência — para que ele sempre se sinta seguro e bem atendido.</p>
+    </div>
+    <div class="problema">
+      <p class="problema-titulo">Processo preso em uma pessoa</p>
+      <h3>"Se essa pessoa sair, tudo para."</h3>
+      <p>Documento processos, crio playbooks e treino equipes para que o conhecimento não fique na cabeça de ninguém — e a operação continue mesmo com mudanças.</p>
+    </div>
+    <div class="problema">
+      <p class="problema-titulo">Decisões no achismo</p>
+      <h3>"A gente não sabe se a campanha está indo bem ou mal — e por quê."</h3>
+      <p>Organizo leitura de métricas de forma simples e visual, facilito reuniões de revisão com o time e transformo dados em decisões concretas de melhoria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO TRABALHO -->
+<section class="como">
+  <p class="section-tag">Como eu trabalho</p>
+  <h2 style="color:#fff">Entro fundo na operação. Não fico só na superfície.</h2>
+  <p class="como-intro">Gosto de entender, fazer perguntas e me aprofundar no negócio do cliente. Só assim consigo entregar algo que realmente funciona — e que a equipe realmente segue.</p>
+  <div class="como-grid">
+    <div class="como-item">
+      <div class="como-num">01</div>
+      <h3>Entendo antes de agir</h3>
+      <p>Faço perguntas, mapeio o fluxo atual e identifico onde está o gargalo real — não o sintoma.</p>
+    </div>
+    <div class="como-item">
+      <div class="como-num">02</div>
+      <h3>Sento com o time</h3>
+      <p>Revisito processos junto com a equipe. As melhores soluções surgem em conjunto — não impostas de cima pra baixo.</p>
+    </div>
+    <div class="como-item">
+      <div class="como-num">03</div>
+      <h3>Documento tudo</h3>
+      <p>Processo não documentado não existe. Crio registros claros para que o conhecimento não fique preso em uma só cabeça.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICOS -->
+<section class="servicos">
+  <p class="section-tag">O que eu entrego</p>
+  <h2>Organização que liberta, não que engessa.</h2>
+  <div class="servicos-grid">
+    <div class="servico">
+      <h3>Gestão de projetos e campanhas</h3>
+      <p>Planejamento, controle de prazos e acompanhamento de cada entrega. Diário de bordo, status atualizado e equipe alinhada — sem precisar perguntar o tempo todo.</p>
+    </div>
+    <div class="servico">
+      <h3>Atendimento e retenção de clientes</h3>
+      <p>Mapeio as preferências de cada cliente e crio processos de comunicação e follow-up adaptados. Seu cliente se sente cuidado — e quer continuar.</p>
+    </div>
+    <div class="servico">
+      <h3>Criação e implantação de processos</h3>
+      <p>Playbooks e fluxos de trabalho claros, documentados e que a equipe realmente segue. Sem processo preso na cabeça de uma só pessoa.</p>
+    </div>
+    <div class="servico">
+      <h3>Gestão de crise em mídia</h3>
+      <p>Auditoria de campanhas, identificação de discrepâncias e acionamento rápido de ajustes — com comunicação clara pro cliente durante todo o processo.</p>
+    </div>
+    <div class="servico">
+      <h3>Estruturação de briefings</h3>
+      <p>Briefings completos com objetivo, público-alvo, métricas e contexto do cliente. A equipe executa com clareza — e o resultado chega mais perto do esperado.</p>
+    </div>
+    <div class="servico">
+      <h3>Leitura de métricas e KPIs</h3>
+      <p>Dados organizados de forma simples e visual. Facilitação de reuniões de revisão para que as decisões sejam tomadas com clareza — não no achismo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Vamos conversar sobre a sua operação?</h2>
+  <p>30 minutos. Sem compromisso. Você me conta como está hoje — eu te mostro onde posso ajudar.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5561996248205?text=Oi%20Amanda%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar!" class="btn-white">WhatsApp</a>
+    <a href="mailto:amandaguilhermeee@gmail.com?subject=Vi seu portfólio e quero conversar" class="btn-outline">E-mail</a>
+  </div>
+</section>
+
+<footer>
+  <p>Amanda Guilherme · Gestão de Projetos & Processos</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/eu.nagestao">@eu.nagestao</a>
+    <a href="mailto:amandaguilhermeee@gmail.com">amandaguilhermeee@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
